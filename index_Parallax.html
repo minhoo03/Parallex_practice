@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Parallax_크리스마스</title>
+	<style>
+		html, body {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+            background: #000;
+		}
+		.bgimg {
+			position: relative;
+			/* 배경 이미지는 움직이지 않음 */
+			background-size: cover; 
+			/* 전체 씌우기 */
+			background-repeat: no-repeat;
+			/* 이미지 여러개로 채우지 않고 하나로 */
+            background-attachment: fixed;
+			/* 이미지 멈춰있기 */
+		}
+		.bg-1 {
+			 background-image: url(images/p4.jpg);
+			 height: 100%;
+		}
+		.bg-2 {
+			 background-image: url(images/p5.jpg);
+             width: 1000px;
+			 height: 500px; /*보이는 영역*/
+             margin: 0 auto;
+		}
+		.bg-3 {
+			 background-image: url(images/p6.jpg);
+             width: 1000px;
+			 height: 500px; /*보이는 영역*/
+             margin: 0 auto;
+		}		
+		.caption {
+			width: 160px;
+			height: 20px;
+			border: 2px solid rgb(60, 228, 83);
+			text-align: center;
+			position: absolute; /*절대적 위치 덕분에 맘대로 옮기기 가능*/
+			top: 50%;
+			left: 50%; /*왼쪽 위부터 50%씩 채워줌*/
+			transform: translate(-50%, -50%);
+            /* 나머지를 50%씩 */
+		}
+		.text h3 {
+            text-align: center;
+		}
+        h5{text-align: center;}
+        .text{background: #000; color: rgb(250, 250, 250);}
+        a{text-decoration: none; color: rgb(126, 201, 56); font-weight: bold;}
+	</style>
+</head>
+<body>
+	<div class="bgimg bg-1">
+		<div class="ch"><div class="caption"><a href="#">크리스마스 남은 일</a></div></div>
+	</div>
+	<div class="text">
+		<h3>크리스마스</h3>
+		<h5>
+			크리스마스(영어: Christmas, X-mas[1] 또는 영어: Christmas Day 크리스마스 데이[*])는 한국어로 흔히 성탄절이라고 하며, 라틴어 '그리스도'(라틴어: Christus 크리스투스[*])와 '모임'(라틴어: massa 마사[*])에서 온 영어 단어로 프랑스어로 '노엘'(프랑스어: Noel), 독일어로 '바이나흐튼'(독일어: Weihnachten), 스페인어로 '나비다드'(스페인어: Navidad)라고 한다. 기독교에서는 전통적으로 율리우스력의 12월 25일을 기준으로 하여 예수 그리스도의 탄생을 기념하는 날이다.
+		</h5>
+	</div>
+	<div class="bgimg bg-2">
+		<div class="caption"><a href="https://ko.wikipedia.org/wiki/%ED%81%AC%EB%A6%AC%EC%8A%A4%EB%A7%88%EC%8A%A4">12월 25일</a></div>
+	</div>
+	<div class="text">
+		<h3>X-mas</h3>
+		<h5>
+			'Χ - mas' 또는 'Χ-mas'는 로마문자의 '엑스(X)'가 아닌 '그리스도'(크리스토스, Χριστός)의 그리스어 첫글자인 그리스문자 '키'(Χ)에 '마스'(mas)를 붙여서 쓴 것이다. 따라서 영어권에서는 관용적으로 '엑스마스'라고 읽기도 하나,[4] 원칙적으로 '크리스마스'로 읽는 것이 맞다.
+		</h5>
+	</div>
+	<div class="bgimg bg-3">
+		<div class="caption"><a href="#">SDHS</a></div>
+	</div>
+	<div class="text">
+		<h3>기독탄신일</h3>
+		<h5>
+			현재는 기독교 문화권이 강한 지역에서 종교적인 의미를 초월하여 문화적인 행사로 발전하였다. 크리스마스는 기독교 교회에서 부활절과 함께 가장 중요한 축제이자 교회력 절기인데, 전통적으로 교회에서는 크리스마스 전 4주일 동안 예수가 세상에 다시 올 것을 기다리는 대림절(강림절, 대강절)로 지킨다. 대한민국 대통령령 "관공서의 공휴일에 관한 규정"에서의 명칭은 '기독탄신일(基督誕辰日)'이다.[5]
+		</h5>
+	</div>
+	<div class="bgimg bg-1">
+		<div class="caption">thx!!!</div>
+	</div>
+</body>
+
+<script src="./js/jquery-3.4.1.min.js"></script>
+<script>
+
+    $(".ch").click(function(){
+    var t = new Date(); //오늘 날짜 객체 생성
+    var nowYear = t.getFullYear(); //오늘 날짜 년도 정보 전부 가져오기
+    var theDate =new Date(nowYear,11,25); //오늘 날짜에서의 지금년도 12월 25일 생성
+    var diffDate=theDate-t; //12월 25일에서 오늘 날짜를 뺀건데 밀리초로 구한거임    1초에 1000밀리초
+    var result = Math.ceil( diffDate/(1000*60*60*24)); //1일에 86,400,000 밀리초이므로  1000*60*60을 해준것 그러면  diffDate 밀리초를 1일1일씩 계산한것으므로 남은 날짜가 나옴
+
+    alert("현재 일부터 크리스마스 이브까지는 "+result+"일 남았습니다");
+    })
+    
+</script>
+</html>
